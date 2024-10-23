@@ -11,7 +11,7 @@ struct ResponseData: Codable {
     let data: [Cripto]
 }
 
-struct Cripto: Codable {
+struct Crypto: Codable {
     let id: Int
     var favorite: Bool?
     let name: String
