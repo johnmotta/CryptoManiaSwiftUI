@@ -9,36 +9,45 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        VStack {
-            Image("logo")
-                .resizable()
-                .frame(width: 250, height: 250)
-                .scaledToFit()
-            
-            Text("Junte-se à comunidade")
-                .font(.title2)
-                .padding(.horizontal)
-            
-            Text("Vamos conhecer todas as criptomoedas do mercado e seguir as que mais gostamos! Você não quer perder a oportunidade de comprar uma boa cripto.")
-                .padding(.horizontal, 20)
-
+        NavigationStack {
             VStack {
-                Button("Faça Login") {}
-                    .frame(width: 200, height: 50)
-                    .foregroundStyle(.black)
-                    .background(Color("bColor"))
-                    .cornerRadius(10)
-                    .padding()
+                Image("logo")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 250, height: 200)
                 
-                Button("Register") {}
-                    .frame(width: 200, height: 50)
-                    .foregroundStyle(.black)
-                    .background(Color("bColor"))
-                    .cornerRadius(10)
+                Text("Junte-se à comunidade")
+                    .font(.title)
+                    .bold()
                     .padding(.horizontal)
+                    .padding(.bottom)
+                
+                Text("Vamos conhecer todas as criptomoedas do mercado e seguir as que mais gostamos! Você não quer perder a oportunidade de comprar uma boa cripto.")
+                    .padding(.horizontal, 39)
+                
+                
+                NavigationLink(destination: CryptoView()) {
+                    Text("Faça Login")
+                        .frame(width: 200, height: 50)
+                        .foregroundColor(.black)
+                        .background(Color("bColor"))
+                        .cornerRadius(10)
+                        .padding()
+                }
+                
+                NavigationLink(destination: ProgressView()) {
+                    Text("Registrar")
+                        .frame(width: 200, height: 50)
+                        .foregroundStyle(.black)
+                        .background(Color("bColor"))
+                        .cornerRadius(10)
+                }
+                    
+                
+                
+                
+                Spacer()
             }
-            
-            Spacer()
         }
     }
 }
