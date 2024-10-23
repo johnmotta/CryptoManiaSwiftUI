@@ -16,7 +16,7 @@ class ServiceManager {
         URLCache.shared = cache
     }
 
-    func fetchCoinMarketCap(completion: @escaping (Result<[Cripto], NetworkError>) -> Void) {
+    func fetchCoinMarketCap(completion: @escaping (Result<[Crypto], NetworkError>) -> Void) {
         let urlString = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidURL(urlString)))
