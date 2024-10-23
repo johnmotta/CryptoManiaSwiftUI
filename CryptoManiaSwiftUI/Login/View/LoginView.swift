@@ -9,7 +9,37 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image("logo")
+                .resizable()
+                .frame(width: 250, height: 250)
+                .scaledToFit()
+            
+            Text("Junte-se à comunidade")
+                .font(.title2)
+                .padding(.horizontal)
+            
+            Text("Vamos conhecer todas as criptomoedas do mercado e seguir as que mais gostamos! Você não quer perder a oportunidade de comprar uma boa cripto.")
+                .padding(.horizontal, 20)
+
+            VStack {
+                Button("Faça Login") {}
+                    .frame(width: 200, height: 50)
+                    .foregroundStyle(.black)
+                    .background(Color("bColor"))
+                    .cornerRadius(10)
+                    .padding()
+                
+                Button("Register") {}
+                    .frame(width: 200, height: 50)
+                    .foregroundStyle(.black)
+                    .background(Color("bColor"))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+            }
+            
+            Spacer()
+        }
     }
 }
 
