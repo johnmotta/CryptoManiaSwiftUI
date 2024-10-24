@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+
+    @State var showTabBarView = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,14 +28,18 @@ struct LoginView: View {
                 Text("Vamos conhecer todas as criptomoedas do mercado e seguir as que mais gostamos! Você não quer perder a oportunidade de comprar uma boa cripto.")
                     .padding(.horizontal, 39)
                 
-                
-                NavigationLink(destination: CryptoView()) {
+                Button {
+                    showTabBarView = true
+                } label: {
                     Text("Faça Login")
                         .frame(width: 200, height: 50)
                         .foregroundColor(.black)
                         .background(Color("bColor"))
                         .cornerRadius(10)
                         .padding()
+                }
+                .fullScreenCover(isPresented: $showTabBarView) {
+                    TabBarView(showTabBarView: $showTabBarView)
                 }
                 
                 NavigationLink(destination: ProgressView()) {
@@ -42,12 +49,8 @@ struct LoginView: View {
                         .background(Color("bColor"))
                         .cornerRadius(10)
                 }
-                    
-                
-                
-                
                 Spacer()
-            }
+            } 
         }
     }
 }
