@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct TabBarView: View {
+    
+    @Binding var showTabBarView: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            TabView {
+                CryptoView()
+                    .tabItem {
+                        Label("CryptoMania", systemImage: "bitcoinsign.circle.fill")
+                    }
+                
+                ProgressView()
+                    .tabItem {
+                        Label("Favoritos", systemImage: "star.fill")
+                    }
+            }
+            .accentColor(Color("bColor"))
+            .navigationBarTitle("CryptoMania", displayMode: .inline)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Logout") {
+                        self.showTabBarView.toggle()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    TabBarView()
+    TabBarView(showTabBarView: .constant(false))
 }
