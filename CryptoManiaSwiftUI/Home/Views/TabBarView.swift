@@ -9,17 +9,18 @@ import SwiftUI
 
 struct TabBarView: View {
     
+    @StateObject var viewModel = CryptoViewModel()
     @Binding var showTabBarView: Bool
     
     var body: some View {
         NavigationStack {
             TabView {
-                CryptoView()
+                CryptoView(viewModel: viewModel)
                     .tabItem {
                         Label("CryptoMania", systemImage: "bitcoinsign.circle.fill")
                     }
                 
-                ProgressView()
+                FavoriteView(viewModel: viewModel)
                     .tabItem {
                         Label("Favoritos", systemImage: "star.fill")
                     }
