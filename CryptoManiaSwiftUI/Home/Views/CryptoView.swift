@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CryptoView: View {
-    @StateObject var viewModel = CryptoViewModel()
+    @StateObject var viewModel: CryptoViewModel
         
     var body: some View {
         NavigationStack {
@@ -76,7 +76,7 @@ struct CryptoView: View {
         }
     }
 }
-
-#Preview {
-    CryptoView()
-}
+//
+//#Preview {
+//    CryptoView()
+//}
